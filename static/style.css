@@ -1,0 +1,715 @@
+* {
+    box-sizing: border-box
+}
+
+:root {
+    --gold: #f6cf83;
+    --cream: #fff0cf;
+    --muted: #c4b7c9
+}
+
+html,
+body {
+    margin: 0;
+    min-height: 100%;
+    background: #10091f;
+    color: #fff;
+    font-family: 'DM Sans', sans-serif;
+    overflow-x: hidden
+}
+
+body {
+    min-height: 100vh;
+    position: relative;
+    background: radial-gradient(ellipse at 70% 45%, #321633 0%, #1c1029 38%, #0d0819 78%)
+}
+
+#sky {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0
+}
+
+.ambient {
+    position: fixed;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .18;
+    pointer-events: none
+}
+
+.ambient-one {
+    width: 380px;
+    height: 380px;
+    background: #d65a22;
+    top: 20%;
+    left: -180px
+}
+
+.ambient-two {
+    width: 420px;
+    height: 420px;
+    background: #6e319b;
+    right: -180px;
+    bottom: 0
+}
+
+.topbar {
+    height: 76px;
+    padding: 0 7vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #ffffff12;
+    position: relative;
+    z-index: 2
+}
+
+.brand {
+    font-size: 11px;
+    letter-spacing: 3px;
+    color: #f8dfb3;
+    text-decoration: none;
+    font-weight: 700
+}
+
+.brand-mark {
+    color: var(--gold);
+    font-size: 19px;
+    vertical-align: middle;
+    margin-right: 9px
+}
+
+.nav-note {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    color: #b6a6bd;
+    text-transform: uppercase
+}
+
+.scene {
+    position: relative;
+    z-index: 1;
+    max-width: 1180px;
+    margin: auto;
+    padding: 55px 36px 25px
+}
+
+.eyebrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    color: #d9b87f;
+    font-size: 10px;
+    letter-spacing: 4px
+}
+
+.eyebrow span {
+    height: 1px;
+    width: 35px;
+    background: linear-gradient(90deg, transparent, #c69a5b)
+}
+
+.hero {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    min-height: 500px;
+    gap: 20px
+}
+
+.hero-copy {
+    padding: 20px 0 35px 5%
+}
+
+.small-greeting {
+    color: #c7a7b5;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-size: 11px;
+    margin: 0 0 9px
+}
+
+h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(34px, 5vw, 58px);
+    font-weight: 500;
+    color: #fff0d3;
+    margin: 0 0 13px;
+    letter-spacing: 1px;
+    text-shadow: 0 0 28px #f1b96835
+}
+
+h2 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(36px, 5.5vw, 67px);
+    line-height: 1.06;
+    letter-spacing: 2px;
+    margin: 0;
+    color: #fff5e4;
+    font-weight: 600
+}
+
+h2 em {
+    font-style: normal;
+    background: linear-gradient(110deg, #fff2c9, #e8b45e 48%, #fff0c5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent
+}
+
+.message {
+    max-width: 470px;
+    color: #cbbdce;
+    line-height: 1.9;
+    font-size: 14px;
+    margin: 24px 0 18px
+}
+
+.signature {
+    color: #b9a8bd;
+    font-size: 12px;
+    letter-spacing: .5px
+}
+
+.signature strong {
+    color: #f2d49a;
+    font-weight: 600;
+    margin-left: 5px
+}
+
+.gold-button {
+    margin-top: 27px;
+    padding: 14px 22px;
+    border: 1px solid #e6bd77;
+    border-radius: 3px;
+    background: linear-gradient(110deg, #e4b768, #f6d89c);
+    color: #26172a;
+    font-weight: 700;
+    letter-spacing: .4px;
+    cursor: pointer;
+    box-shadow: 0 8px 30px #d89a4a2b;
+    transition: .25s
+}
+
+.gold-button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 35px #e8b25c55
+}
+
+.gold-button span {
+    margin-right: 8px
+}
+
+.visual {
+    height: 460px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    perspective: 900px;
+    animation: float 5s ease-in-out infinite
+}
+
+.halo {
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, #f8a94428 0%, #a9475b12 45%, transparent 70%);
+    filter: blur(10px)
+}
+
+.orbit {
+    position: absolute;
+    border: 1px solid #e8bd6d30;
+    border-radius: 50%;
+    transform: rotateX(68deg) rotateZ(-20deg)
+}
+
+.orbit-a {
+    width: 380px;
+    height: 170px
+}
+
+.orbit-b {
+    width: 300px;
+    height: 130px;
+    transform: rotateX(68deg) rotateZ(35deg);
+    border-color: #f6d18b24
+}
+
+.flame-wrap {
+    position: absolute;
+    top: 107px;
+    z-index: 4;
+    width: 64px;
+    height: 105px;
+    filter: drop-shadow(0 0 22px #ff9c36)
+}
+
+.flame {
+    position: absolute;
+    bottom: 0;
+    left: 12px;
+    width: 42px;
+    height: 85px;
+    border-radius: 55% 0 55% 55%;
+    transform: rotate(45deg);
+    background: linear-gradient(135deg, #fff7b7 5%, #ffbd49 42%, #ed5b23 80%);
+    animation: flicker .16s infinite alternate
+}
+
+.flame-core {
+    position: absolute;
+    bottom: 0;
+    left: 24px;
+    width: 17px;
+    height: 52px;
+    border-radius: 50% 0 50% 50%;
+    transform: rotate(45deg);
+    background: #fff9d5;
+    filter: blur(2px)
+}
+
+.diya {
+    position: absolute;
+    top: 235px;
+    width: 270px;
+    height: 140px;
+    z-index: 3;
+    filter: drop-shadow(0 18px 24px #0008);
+    transform: rotateX(8deg)
+}
+
+.diya-rim {
+    position: absolute;
+    top: 0;
+    left: 16px;
+    width: 238px;
+    height: 44px;
+    border-radius: 50%;
+    background: linear-gradient(180deg, #ffe3a0, #b9682e 50%, #74351f);
+    border: 2px solid #f8ce7e;
+    z-index: 2
+}
+
+.diya-bowl {
+    position: absolute;
+    top: 18px;
+    left: 26px;
+    width: 218px;
+    height: 91px;
+    border-radius: 0 0 110px 110px;
+    background: linear-gradient(160deg, #d88b43 0%, #a94e2c 48%, #5d2929 100%);
+    border-bottom: 3px solid #f2bd6c;
+    overflow: hidden
+}
+
+.bowl-shine {
+    position: absolute;
+    top: 0;
+    left: 25px;
+    width: 150px;
+    height: 12px;
+    border-radius: 50%;
+    background: #ffe1a0;
+    opacity: .38;
+    filter: blur(5px)
+}
+
+.pattern {
+    position: absolute;
+    bottom: 22px;
+    width: 100%;
+    text-align: center;
+    color: #ffd58b;
+    font-size: 15px;
+    letter-spacing: 4px;
+    opacity: .8
+}
+
+.diya-base {
+    position: absolute;
+    bottom: 0;
+    left: 74px;
+    width: 122px;
+    height: 18px;
+    border-radius: 50%;
+    background: linear-gradient(#d28a49, #703423);
+    border: 1px solid #e6ae64
+}
+
+.reflection {
+    position: absolute;
+    top: 365px;
+    width: 210px;
+    height: 24px;
+    border-radius: 50%;
+    background: #f6a34135;
+    filter: blur(17px)
+}
+
+.sparkle {
+    position: absolute;
+    color: #ffdda0;
+    text-shadow: 0 0 15px #ffb34e;
+    animation: twinkle 2s infinite
+}
+
+.s1 {
+    top: 115px;
+    left: 23%
+}
+
+.s2 {
+    top: 210px;
+    right: 13%;
+    font-size: 23px;
+    animation-delay: .6s
+}
+
+.s3 {
+    top: 310px;
+    left: 16%;
+    font-size: 13px;
+    animation-delay: 1s
+}
+
+.visual-caption {
+    position: absolute;
+    bottom: 12px;
+    color: #b99973;
+    font-size: 9px;
+    letter-spacing: 4px
+}
+
+.wishes-card {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    margin: 15px auto 0;
+    padding: 22px 25px;
+    max-width: 900px;
+    border: 1px solid #ffffff18;
+    background: linear-gradient(110deg, #ffffff0b, #ffffff04);
+    backdrop-filter: blur(12px);
+    border-radius: 8px
+}
+
+.card-icon {
+    font-size: 27px;
+    color: #e9bd77
+}
+
+.wishes-card h3 {
+    font-family: 'Cinzel', serif;
+    font-size: 16px;
+    margin: 0 0 5px;
+    color: #f5d9a5
+}
+
+.wishes-card p {
+    margin: 0;
+    color: #b9aabb;
+    font-size: 11px
+}
+
+.personalize {
+    margin-left: auto;
+    display: flex;
+    gap: 8px
+}
+
+.personalize input {
+    width: 125px;
+    background: #100b1c;
+    border: 1px solid #ffffff20;
+    border-radius: 3px;
+    padding: 11px;
+    color: #fff;
+    font: inherit;
+    font-size: 11px;
+    outline: none
+}
+
+.personalize input:focus {
+    border-color: #dcb36d
+}
+
+.personalize button {
+    border: 0;
+    border-radius: 3px;
+    padding: 0 15px;
+    background: #e7bd78;
+    color: #271a29;
+    font-weight: 700;
+    font-size: 11px;
+    cursor: pointer
+}
+
+.personalize button span {
+    margin-left: 8px
+}
+
+footer {
+    text-align: center;
+    padding: 35px 0 5px;
+    color: #786c80;
+    font-size: 9px;
+    letter-spacing: 2px
+}
+
+footer span {
+    color: #d77a55
+}
+
+.toast {
+    position: fixed;
+    bottom: 25px;
+    left: 50%;
+    transform: translate(-50%, 20px);
+    opacity: 0;
+    padding: 12px 20px;
+    background: #f0c77e;
+    color: #241528;
+    border-radius: 30px;
+    font-size: 12px;
+    font-weight: 700;
+    transition: .35s;
+    z-index: 5;
+    pointer-events: none
+}
+
+.toast.show {
+    opacity: 1;
+    transform: translate(-50%, 0)
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0)
+    }
+
+    50% {
+        transform: translateY(-10px)
+    }
+}
+
+@keyframes flicker {
+    from {
+        transform: rotate(43deg) scale(.96);
+        opacity: .9
+    }
+
+    to {
+        transform: rotate(47deg) scale(1.04);
+        opacity: 1
+    }
+}
+
+@keyframes twinkle {
+
+    0%,
+    100% {
+        opacity: .25;
+        transform: scale(.8)
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.25)
+    }
+}
+
+@media(max-width:760px) {
+    .topbar {
+        height: 62px;
+        padding: 0 20px
+    }
+
+    .nav-note {
+        display: none
+    }
+
+    .scene {
+        padding: 38px 20px 20px
+    }
+
+    .hero {
+        grid-template-columns: 1fr;
+        gap: 0
+    }
+
+    .hero-copy {
+        text-align: center;
+        padding: 25px 0 0
+    }
+
+    .message {
+        margin: 18px auto
+    }
+
+    .visual {
+        height: 390px;
+        order: 2
+    }
+
+    .flame-wrap {
+        top: 68px
+    }
+
+    .diya {
+        top: 195px
+    }
+
+    .wishes-card {
+        flex-wrap: wrap;
+        padding: 20px
+    }
+
+    .personalize {
+        width: 100%;
+        margin: 8px 0 0;
+        flex-wrap: wrap
+    }
+
+    .personalize input {
+        flex: 1;
+        min-width: 100px
+    }
+
+    .personalize button {
+        height: 39px
+    }
+
+    .visual-caption {
+        bottom: 0
+    }
+}
+
+/* Name-entry welcome screen */
+.welcome {
+    display: grid;
+    grid-template-columns: 1.05fr .95fr;
+    align-items: center;
+    min-height: 500px;
+    gap: 20px
+}
+
+.welcome-copy {
+    padding: 20px 0 35px 5%
+}
+
+.welcome h1 {
+    font-family: 'Cinzel', serif;
+    font-size: clamp(35px, 5vw, 60px);
+    font-weight: 500;
+    line-height: 1.2;
+    color: #fff0d3;
+    margin: 0 0 14px
+}
+
+.welcome h1 em {
+    font-style: normal;
+    background: linear-gradient(110deg, #fff2c9, #e8b45e 48%, #fff0c5);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent
+}
+
+.welcome .message {
+    margin: 20px 0
+}
+
+.personalize {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 340px;
+    margin-top: 25px
+}
+
+.personalize label {
+    font-size: 9px;
+    letter-spacing: 3px;
+    color: #d9b87f;
+    font-weight: 700
+}
+
+.personalize input {
+    width: 100%;
+    background: #100b1c;
+    border: 1px solid #ffffff28;
+    border-radius: 3px;
+    padding: 15px;
+    color: #fff;
+    font: inherit;
+    font-size: 13px;
+    outline: none
+}
+
+.personalize input:focus {
+    border-color: #dcb36d;
+    box-shadow: 0 0 0 3px #dcb36d18
+}
+
+.personalize button {
+    border: 1px solid #e6bd77;
+    border-radius: 3px;
+    padding: 15px 20px;
+    background: linear-gradient(110deg, #e4b768, #f6d89c);
+    color: #26172a;
+    font-weight: 700;
+    letter-spacing: .4px;
+    cursor: pointer;
+    text-align: center
+}
+
+.personalize button span {
+    margin-left: 10px
+}
+
+.again-link {
+    margin-left: auto;
+    color: #f0cc8c;
+    text-decoration: none;
+    font-size: 12px;
+    border-bottom: 1px solid #f0cc8c66;
+    padding-bottom: 4px
+}
+
+@media(max-width:760px) {
+    .welcome {
+        grid-template-columns: 1fr;
+        gap: 0
+    }
+
+    .welcome-copy {
+        text-align: center;
+        padding: 25px 0 0
+    }
+
+    .welcome .message {
+        margin: 18px auto
+    }
+
+    .welcome .personalize {
+        margin: 25px auto 0;
+        text-align: left
+    }
+
+    .welcome .visual {
+        height: 390px
+    }
+
+    .wishes-card .again-link {
+        margin: 10px 0 0
+    }
+}

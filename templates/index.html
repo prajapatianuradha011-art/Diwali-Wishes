@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#10091f">
+  <title>Happy Diwali | A Little Light for You</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+  <canvas id="sky"></canvas>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <nav class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">✦</span> FESTIVE MOMENTS</a>
+    <span class="nav-note">A celebration of light</span>
+  </nav>
+
+  <main class="scene">
+    <div class="eyebrow"><span></span> THE FESTIVAL OF LIGHTS <span></span></div>
+
+    {% if friend %}
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="small-greeting">A special wish for</p>
+        <h1 id="friendName">{{ friend }}</h1>
+        <h2>HAPPY <em>DIWALI</em></h2>
+        <p class="message">May your days sparkle with happiness, your home glow with peace,
+          and every new beginning bring you closer to your dreams. May this Diwali fill your
+          life with bright opportunities, beautiful memories and endless smiles!</p>
+        <div class="signature">With light &amp; love, <strong>{{ sender }}</strong></div>
+        <button class="gold-button" id="celebrate"><span>✧</span> Celebrate the moment</button>
+      </div>
+
+      <div class="visual" aria-label="Animated glowing diya">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="halo"></div>
+        <div class="sparkle s1">✦</div>
+        <div class="sparkle s2">✧</div>
+        <div class="sparkle s3">✦</div>
+        <div class="flame-wrap">
+          <div class="flame"></div>
+          <div class="flame-core"></div>
+        </div>
+        <div class="diya">
+          <div class="diya-rim"></div>
+          <div class="diya-bowl">
+            <div class="bowl-shine"></div>
+            <div class="pattern">✧　✦　✧</div>
+          </div>
+          <div class="diya-base"></div>
+        </div>
+        <div class="reflection"></div>
+        <div class="visual-caption">LET YOUR LIGHT SHINE</div>
+      </div>
+    </section>
+    <section class="wishes-card">
+      <div class="card-icon">❋</div>
+      <div>
+        <h3>Your personalised wish is ready!</h3>
+        <p>Share this page with someone special and let them add their name.</p>
+      </div>
+      <a class="again-link" href="/">Make another wish ↗</a>
+    </section>
+    {% else %}
+    <section class="welcome">
+      <div class="welcome-copy">
+        <p class="small-greeting">A little festive surprise awaits you</p>
+        <h1>Someone sent you<br><em>Diwali wishes!</em></h1>
+        <p class="message">Enter your name below to unlock your personalised Diwali greeting.</p>
+        <form method="POST" class="personalize">
+          <label for="friend">YOUR NAME</label>
+          <input id="friend" name="friend" placeholder="Enter your name" maxlength="28" autocomplete="given-name"
+            required>
+          <button type="submit">Reveal my wishes <span>→</span></button>
+        </form>
+      </div>
+      <div class="visual" aria-label="Animated glowing diya">
+        <div class="orbit orbit-a"></div>
+        <div class="orbit orbit-b"></div>
+        <div class="halo"></div>
+        <div class="sparkle s1">✦</div>
+        <div class="sparkle s2">✧</div>
+        <div class="sparkle s3">✦</div>
+        <div class="flame-wrap">
+          <div class="flame"></div>
+          <div class="flame-core"></div>
+        </div>
+        <div class="diya">
+          <div class="diya-rim"></div>
+          <div class="diya-bowl">
+            <div class="bowl-shine"></div>
+            <div class="pattern">✧　✦　✧</div>
+          </div>
+          <div class="diya-base"></div>
+        </div>
+        <div class="reflection"></div>
+        <div class="visual-caption">A FESTIVAL FULL OF LIGHT</div>
+      </div>
+    </section>
+    {% endif %}
+
+    <footer>MADE WITH <span>♥</span> FOR THE PEOPLE WHO MAKE LIFE BRIGHTER</footer>
+  </main>
+  <div class="toast" id="toast">✨ Let the celebrations begin!</div>
+  <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
